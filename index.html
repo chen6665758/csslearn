@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学成网</title>
+    <style>
+        /* 公共部分 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+
+        .clearfix:before,.clearfix:after{ /* 清除浮动 */
+            content: '';
+            display: table;
+        }
+        .clearfix:after{
+            clear: both;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        a{
+            color: #050505;
+            text-decoration: none;
+        }
+        input{
+            border: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        body{
+            background-color: #f5f5f5;
+            /* height: 2000px; */
+        }
+
+        /* 头部设计 */
+        header{
+            height: 100px;
+            /* background-color: pink; */
+            overflow: hidden;       /* 防止外边距合并 */
+        }
+        nav{
+            width: 1366px;
+            height: 42px;
+            margin: 28px auto;
+        }
+        .logo{
+            height: 42px;
+            width: 120px;
+            float: left;
+        }
+        .navbar{
+            float: left;
+            height: 42px;
+            line-height: 42px;
+            margin-left: 15px;
+        }
+        .navbar li{           
+            float: left;                      
+        }
+        .navbar li a{
+            display: block;
+            padding: 0 8px;
+            height: 40px;
+            
+        }
+        .navbar li a:hover{
+            border-bottom: 2px solid #00a4ff;
+        }
+
+        .search{
+            width: 410px;
+            height: 38px;
+            border: 1px solid #00a4ff;
+            float: right;
+        }
+        .search input[type=text]{
+            width: 360px;
+            height: 38px;
+            padding-left: 20px;
+            float: left;
+            
+        }
+        .search input[type=submit]{
+            width: 50px;
+            height: 38px;
+            background-color: #00a4ff;
+            float: left;
+        }
+
+        .personal{
+            float: right;
+            height: 42px;
+            line-height: 42px;
+            margin-right: 15px;
+            margin-left: 25px;
+        }
+        .personal img{
+            margin:0 10px;
+            vertical-align: middle;
+        }
+
+        .banner{
+            height: 420px;
+            background-color: #1c036c;
+        }
+        .banner-in{
+            height: 420px;
+            background: url(images/logo.jpg) 0 0 no-repeat;
+            background-size: 100% 100%;
+        }
+        .slider{
+            height: 420px;
+            width: 190px;
+            background: rgba(0,0,0,.3);
+            float: left;
+        }
+
+        .slider li a{
+            color: #fff;
+            font-size: 14px;
+            display: block;
+            padding: 0 20px;
+            line-height: 45px;
+        }
+        .slider li a:hover{
+            color:#00a4ff;
+        }
+        .slider li a span{
+            float: right;
+            font-family: arial;
+        }
+
+        .timetable{
+            float: right;
+            width: 230px;
+            height: 300px;
+            background-color: #fff;
+            margin-top: 50px;
+        }
+        .timetable dt{
+            height: 50px;
+            background-color: #9bceea;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 2px;   /* 设置字间距 */
+            margin-bottom: 5px;
+        }
+        .timetable dd{
+            width: 193px;
+            height: 60px;
+            margin:0 auto;
+            border-bottom:1px solid #ccc ;
+            padding-top: 12px;
+            box-sizing: border-box;
+        }
+        .timetable dd:last-child{
+            border: 0;
+        }
+        .timetable dd h4{
+            font-size: 16px;
+            font-weight: normal;
+            color: #4e4e4e;
+        }
+        .timetable dd p{
+            color: #a5a5a5;
+            font-size: 14px;
+        }
+        .timetable dd a{
+            display: block;
+            border: 2px solid #00a4ff;
+            text-align: center;
+            line-height: 38px;
+            color: #00a4ff;
+            font-weight: 700;;
+        }
+        .timetable dd a:hover{
+            background-color: #00a4ff;
+            color: #fff;
+        }
+
+        .recommend{
+            height: 60px;
+            line-height: 60px;
+            background-color: #fff;
+            margin-top: 8px;
+            box-shadow: 0 2px 2px rgba(0,0,0,.2) ;
+        }
+        .recommend a{
+            padding: 0 30px;
+            border-right: 1px solid #ccc;
+        }
+        .recommend a:hover{
+            color:#00a4ff;
+        }
+        .recommend a:first-child{
+            color: #00a4ff;
+        }
+        .recommend a:last-child{
+            float: right;
+            border: 0;
+            font-size: 14px;
+        }
+
+        .recom-products{
+            margin-top: 35px;
+        }
+        .recom-products-title{
+            height: 40px;
+        }
+        .recom-products-title h4{
+            float: left;
+            color: #494949;
+        }
+        .recom-products-title a{
+            float:right;
+            margin-top: 10px;
+            margin-right: 30px;
+            font-size: 14px;
+            color: #a5a5a5;
+        }
+        .recom-products-title a:hover{
+            color: #00a4ff;
+        }
+
+
+
+        .recom-products-body ul li{
+            float: left;
+            width: 228px;
+            height: 270px;
+            background: #fff;
+            box-shadow: 0 4px 5px rgba(0,0,0,.3) ;
+            margin-right: 15px;
+            margin-top: 15px;
+        }
+        .recom-products-body ul li:nth-child(5n)
+        {
+            margin-right: 0;
+        }
+        .recom-products-body ul li img{
+            width: 228px;
+            height: 155px;
+        }
+        .recom-products-body ul li h5,.recom-products-body ul li p{
+            padding: 0 20px 0 24px;
+            margin-top: 12px;
+        }
+        .recom-products-body ul li h5{
+            line-height: 22px;
+            font-weight: none;
+            font-size: 14px;
+        }
+        .recom-products-body ul li p{
+            font-size: 12px;
+            color: #999999;
+        }
+        .recom-products-body ul li p span{
+            color:#ff7c2d;
+        }
+        .recom-products-ad{
+            width: 100px;
+            height: 300px;
+            background-color: pink;
+            position: fixed;
+            top: 300px;
+            left: 10px;
+        }
+
+
+
+        footer{
+            height: 270px;
+            background-color: #fff;
+            margin-top: 100px;
+        }
+
+        .footer-in{
+            padding-top: 30px;
+        }
+        .footer-l{
+            float: left;
+        }
+        .footer-l p{
+            line-height: 18px;
+            font-size: 12px;
+            color:#999;
+            margin-top: 20px;
+            
+        }
+        .footer-l a{
+            display: block;
+            width: 118px;
+            height: 33px;
+            border: 1px solid #00a4ff;
+            font-size: 16px;
+            color: #00a4ff;
+            text-align: center;
+            line-height: 33px;
+            margin-top: 15px;
+            
+        }
+        .footer-l a:hover{
+            background-color: #00a4ff;
+            color: #fff;
+        }
+
+        .footer-r{
+            float: right;
+            color: #333;
+        }
+        .footer-r dl{
+            float: left;
+            width: 200px;
+        }
+        .footer-r dl:last-child{
+            width: auto;
+        }
+        .footer-r dt{
+            font-size: 16px;   
+            height: 30px;        
+        }
+        .footer-r dd{
+            font-size: 12px;
+            height: 20px;
+        }
+        .footer-r dd a:hover{
+            color: #00a4ff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.jpg" height="42px" width="120px"/>
+            </div>
+            <div class="navbar">
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">课程</a></li>
+                    <li><a href="#">职业规划</a></li>
+                </ul>
+            </div>
+            <div class="personal">
+                    <a href="#">个人中心 <img src="images/me.jpeg" width="30px" height="30px" /></a>
+                    <a href="#"><img src="images/me.jpeg" width="30px" height="30px" /> 我本无名</a>
+                </div>
+            <div class="search">
+                <input type="text" placeholder="请输入关键词"/>
+                <input type="submit" value=""/>
+            </div>
+            
+        </nav>
+    </header>
+
+    <div class="banner">
+        <div class="banner-in container">
+            <div class="slider">
+                <ul>
+                    <li><a href="#">诚邀加盟<span>></span></a></li>
+                    <li><a href="#">诚邀加盟<span>></span></a></li>
+                    <li><a href="#">诚邀加盟<span>></span></a></li>
+                    <li><a href="#">诚邀加盟<span>></span></a></li>
+                    <li><a href="#">诚邀加盟<span>></span></a></li>
+                    <li><a href="#">诚邀加盟<span>></span></a></li>
+                    <li><a href="#">诚邀加盟<span>></span></a></li>
+                    <li><a href="#">诚邀加盟<span>></span></a></li>
+                    <li><a href="#">诚邀加盟<span>></span></a></li>
+                </ul>
+            </div>
+
+            <dl class="timetable">
+                <dt>我的课程表</dt>
+                <dd>
+                    <h4>继续学习 程序语言设计</h4>
+                    <p>正在学习-使用对象</p>
+                </dd>
+                <dd>
+                        <h4>继续学习 程序语言设计</h4>
+                        <p>正在学习-使用对象</p>
+                </dd>
+                <dd>
+                        <h4>继续学习 程序语言设计</h4>
+                        <p>正在学习-使用对象</p>
+                </dd>
+                <dd>
+                    <a href="#">全部课程</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="recommend container">
+        <a href="#">精品推荐</a>
+        <a href="#">Jquery</a>
+        <a href="#">Span</a>
+        <a href="#">Mysql</a>
+        <a href="#">javaWeb</a>
+        <a href="#">Mysql</a>
+        <a href="#">javaWeb</a>
+        <a href="#">修改兴趣</a>
+    </div>
+
+    <div class="recom-products container">
+        <div class="recom-products-title">
+            <h4>精品推荐</h4>
+            <a href="#">查看全部</a>
+        </div>
+        <div class="recom-products-body clearfix">
+            <ul>
+                <li>
+                    <img src="images/ico1.jpg"/>
+                    <h5>Think PHP 5.0 博客系统实战项目演练</h5>
+                    <p><span>高级</span>。1125人在学习</p>
+                </li>
+                <li>
+                    <img src="images/ico2.jpg"/>
+                    <h5>Think PHP 5.0 博客系统实战项目演练</h5>
+                    <p><span>高级</span>。1125人在学习</p>
+                </li>
+                <li>
+                    <img src="images/ico3.jpg"/>
+                    <h5>Think PHP 5.0 博客系统实战项目演练</h5>
+                    <p><span>高级</span>。1125人在学习</p>
+                </li>
+                <li>
+                    <img src="images/ico4.jpg"/>
+                    <h5>Think PHP 5.0 博客系统实战项目演练</h5>
+                    <p><span>高级</span>。1125人在学习</p>
+                </li>
+                <li>
+                    <img src="images/ico5.jpg"/>
+                    <h5>Think PHP 5.0 博客系统实战项目演练</h5>
+                    <p><span>高级</span>。1125人在学习</p>
+                </li>
+                <li>
+                    <img src="images/ico6.jpg"/>
+                    <h5>Think PHP 5.0 博客系统实战项目演练</h5>
+                    <p><span>高级</span>。1125人在学习</p>
+                </li>
+                <li>
+                    <img src="images/ico7.jpg"/>
+                    <h5>Think PHP 5.0 博客系统实战项目演练</h5>
+                    <p><span>高级</span>。1125人在学习</p>
+                </li>
+                <li>
+                    <img src="images/ico8.jpg"/>
+                    <h5>Think PHP 5.0 博客系统实战项目演练</h5>
+                    <p><span>高级</span>。1125人在学习</p>
+                </li>
+                <li>
+                    <img src="images/ico9.jpg"/>
+                    <h5>Think PHP 5.0 博客系统实战项目演练</h5>
+                    <p><span>高级</span>。1125人在学习</p>
+                </li>
+                <li>
+                    <img src="images/ico10.jpg"/>
+                    <h5>Think PHP 5.0 博客系统实战项目演练</h5>
+                    <p><span>高级</span>。1125人在学习</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="recom-products-ad"></div>
+    </div>
+
+    <footer>
+        <div class="container footer-in">
+            <div class="footer-l">
+                <img src="images/logo.jpg" width="197px" height="43px" alt="">
+                <p>《曼达洛人》设定在银河帝国沦陷后，第一秩序崛起前的时间段，<br/>主角是名远离新共和国的曼达洛独行侠。</p>
+                <a href="#">下载APP</a>
+            </div>
+            <div class="footer-r">
+                <dl>
+                    <dt>关于学成网</dt>
+                    <dd><a href="#">关于</a></dd>
+                    <dd><a href="#">团队管理</a></dd>
+                    <dd><a href="#">工作机会</a></dd>
+                    <dd><a href="#">客户服务</a></dd>
+                    <dd><a href="#">帮助</a></dd>
+                </dl>
+                <dl>
+                    <dt>关于学成网</dt>
+                    <dd><a href="#">关于</a></dd>
+                    <dd><a href="#">团队管理</a></dd>
+                    <dd><a href="#">工作机会</a></dd>
+                    <dd><a href="#">客户服务</a></dd>
+                    <dd><a href="#">帮助</a></dd>
+                </dl>
+                <dl>
+                    <dt>关于学成网</dt>
+                    <dd><a href="#">关于</a></dd>
+                    <dd><a href="#">团队管理</a></dd>
+                    <dd><a href="#">工作机会</a></dd>
+                    <dd><a href="#">客户服务</a></dd>
+                    <dd><a href="#">帮助</a></dd>
+                </dl>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定位的学习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        .clearfix:before,.clearfix:after{
+            content: '';
+            display: table;
+            
+        }
+        .clearfix:after{
+            clear: both;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .father{
+            width: 400px;
+            background-color: #000;
+            margin: 200px;
+        }
+
+        .father div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .father div:first-child{
+            background-color: red;
+        }
+        .father div:last-child{
+            background-color: skyblue;
+        }
+        .father div:nth-child(2)
+        {
+            position: relative;
+            top: 20px;
+            left: 20px;
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>
