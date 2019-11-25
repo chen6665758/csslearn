@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>盒子翻转的效果</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        div img{
+            position: absolute;
+            transform: scaleY(180deg);
+            transition: all 1s;;
+        }
+
+        div img:first-child{
+            z-index: 1;
+            backface-visibility: hidden;    /* 当控件不是正面显示时，隐藏 */
+        }
+
+        div:hover img{
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="images/ico7.jpg"/>
+        <img src="images/ico8.jpg"/>
+    </div>
+</body>
+</html>
