@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transform中的scale的使用</title>
+    <style>
+        .main{
+            width: 600px;
+            height: 210px;
+            margin: 100px auto;
+            position: relative;
+            perspective: 1000px;
+        }
+        .main img{
+            width: 600px;
+            height: 210px;
+        }
+
+        .main:hover .dleft{
+            transform: rotateY(-130deg);
+        }
+        .main:hover .dright{
+            transform: rotateY(130deg);
+        }
+
+
+
+        .dleft{
+            width: 300px;
+            height: 210px;
+            background-color:pink;
+            position: absolute;
+            top:0;
+            left: 0;
+            transition: all 0.5s;
+            transform-origin: left;
+        }
+        .dright{
+            width: 300px;
+            height: 210px;
+            background-color: skyblue;
+            position: absolute;
+            top:0;
+            right: 0;
+            transition: all 0.5s;
+            transform-origin: right;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <img src="images/logo.jpg"/>
+        <div class="dleft"></div>
+        <div class="dright"></div>
+    </div>
+</body>
+</html>
